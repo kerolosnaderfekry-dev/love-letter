@@ -142,3 +142,4 @@ Open `index.html` and locate `<section id="scene-4">`:
 - **Audio Integrity**: A single `<audio>` element persists across scene transitions, avoiding duplicate sounds or sudden audio restarts.
 - **Reduced Motion**: Full support for `@media (prefers-reduced-motion: reduce)`.
 # love-letter
+# love-letter

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="My Love Letter - A romantic, interactive apology experience created with love and sincerity for Sandra.">
+  <title>My Love Letter ♡</title>
+
+  <!-- Google Fonts: Romantic serif, cursive script, refined sans-serif, and Arabic typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Ambient Romantic Particle Canvas (Floating Hearts & Twinkling Stars) -->
+  <canvas id="ambient-canvas" class="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Corner Floral & Botanical Accents -->
+  <div class="floral-frame" aria-hidden="true">
+    <div class="floral-corner floral-corner--top-left">
+      <svg viewBox="0 0 120 120" class="floral-svg">
+        <path d="M10,10 Q35,50 20,80 Q50,45 80,20 Q45,35 10,10 Z" fill="none" stroke="rgba(216,138,154,0.45)" stroke-width="1.5"/>
+        <circle cx="28" cy="28" r="8" fill="rgba(248,187,208,0.5)" stroke="rgba(212,175,55,0.4)" stroke-width="1"/>
+        <path d="M28,20 C32,24 32,32 28,36 C24,32 24,24 28,20 Z" fill="rgba(199,125,138,0.7)"/>
+        <circle cx="28" cy="28" r="4" fill="rgba(212,175,55,0.8)"/>
+        <path d="M55,20 Q70,30 65,45 Q50,40 55,20 Z" fill="rgba(248,187,208,0.35)"/>
+        <path d="M20,55 Q30,70 45,65 Q40,50 20,55 Z" fill="rgba(248,187,208,0.35)"/>
+        <circle cx="68" cy="18" r="3" fill="rgba(212,175,55,0.6)"/>
+        <circle cx="18" cy="68" r="3" fill="rgba(212,175,55,0.6)"/>
+      </svg>
+    </div>
+    <div class="floral-corner floral-corner--top-right">
+      <svg viewBox="0 0 120 120" class="floral-svg">
+        <path d="M110,10 Q85,50 100,80 Q70,45 40,20 Q75,35 110,10 Z" fill="none" stroke="rgba(216,138,154,0.45)" stroke-width="1.5"/>
+        <circle cx="92" cy="28" r="8" fill="rgba(248,187,208,0.5)" stroke="rgba(212,175,55,0.4)" stroke-width="1"/>
+        <path d="M92,20 C96,24 96,32 92,36 C88,32 88,24 92,20 Z" fill="rgba(199,125,138,0.7)"/>
+        <circle cx="92" cy="28" r="4" fill="rgba(212,175,55,0.8)"/>
+        <path d="M65,20 Q50,30 55,45 Q70,40 65,20 Z" fill="rgba(248,187,208,0.35)"/>
+        <path d="M100,55 Q90,70 75,65 Q80,50 100,55 Z" fill="rgba(248,187,208,0.35)"/>
+        <circle cx="52" cy="18" r="3" fill="rgba(212,175,55,0.6)"/>
+        <circle cx="102" cy="68" r="3" fill="rgba(212,175,55,0.6)"/>
+      </svg>
+    </div>
+    <div class="floral-corner floral-corner--bottom-left">
+      <svg viewBox="0 0 120 120" class="floral-svg">
+        <path d="M10,110 Q35,70 20,40 Q50,75 80,100 Q45,85 10,110 Z" fill="none" stroke="rgba(216,138,154,0.45)" stroke-width="1.5"/>
+        <circle cx="28" cy="92" r="8" fill="rgba(248,187,208,0.5)" stroke="rgba(212,175,55,0.4)" stroke-width="1"/>
+        <path d="M28,84 C32,88 32,96 28,100 C24,96 24,88 28,84 Z" fill="rgba(199,125,138,0.7)"/>
+        <circle cx="28" cy="92" r="4" fill="rgba(212,175,55,0.8)"/>
+        <path d="M55,100 Q70,90 65,75 Q50,80 55,100 Z" fill="rgba(248,187,208,0.35)"/>
+        <path d="M20,65 Q30,50 45,55 Q40,70 20,65 Z" fill="rgba(248,187,208,0.35)"/>
+        <circle cx="68" cy="102" r="3" fill="rgba(212,175,55,0.6)"/>
+        <circle cx="18" cy="52" r="3" fill="rgba(212,175,55,0.6)"/>
+      </svg>
+    </div>
+    <div class="floral-corner floral-corner--bottom-right">
+      <svg viewBox="0 0 120 120" class="floral-svg">
+        <path d="M110,110 Q85,70 100,40 Q70,75 40,100 Q75,85 110,110 Z" fill="none" stroke="rgba(216,138,154,0.45)" stroke-width="1.5"/>
+        <circle cx="92" cy="92" r="8" fill="rgba(248,187,208,0.5)" stroke="rgba(212,175,55,0.4)" stroke-width="1"/>
+        <path d="M92,84 C96,88 96,96 92,100 C88,96 88,88 92,84 Z" fill="rgba(199,125,138,0.7)"/>
+        <circle cx="92" cy="92" r="4" fill="rgba(212,175,55,0.8)"/>
+        <path d="M65,100 Q50,90 55,75 Q70,80 65,100 Z" fill="rgba(248,187,208,0.35)"/>
+        <path d="M100,65 Q90,50 75,55 Q80,70 100,65 Z" fill="rgba(248,187,208,0.35)"/>
+        <circle cx="52" cy="102" r="3" fill="rgba(212,175,55,0.6)"/>
+        <circle cx="102" cy="52" r="3" fill="rgba(212,175,55,0.6)"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Audio Preparation: Discreet header sound toggle & preloaded audio element -->
+  <header class="app-header">
+    <button id="audio-toggle-btn" 
+            class="audio-toggle-btn" 
+            type="button" 
+            aria-label="Toggle background music" 
+            title="Music toggle (Play / Pause / Mute)">
+      <span class="audio-icon" aria-hidden="true">♪</span>
+      <span class="audio-status" id="audio-status-text">Sound: Ready</span>
+    </button>
+  </header>
+
+  <!-- Preloaded Audio Element (Gracefully handled if missing) -->
+  <audio id="bg-audio" preload="auto">
+    <source src="assets/audio/love-song.mp3" type="audio/mpeg">
+    <source src="audio/love-song.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Main Scenes Container -->
+  <main class="scenes-viewport">
+    
+    <!-- ================================================================ -->
+    <!-- SCENE 1: SEALED ENVELOPE (OPENING ACT)                           -->
+    <!-- ================================================================ -->
+    <section id="scene-1" class="scene scene--envelope active" aria-labelledby="scene-1-title">
+      <div class="scene-inner">
+
+        <!-- Top Header & Romantic Inscription -->
+        <header class="envelope-header">
+          <p class="envelope-subheading">A message straight from my heart</p>
+          <h1 id="scene-1-title" class="envelope-heading">
+            To the most precious person in my life
+          </h1>
+          <div class="flourish-divider" aria-hidden="true">
+            <span class="flourish-line"></span>
+            <span class="flourish-heart">❦</span>
+            <span class="flourish-line"></span>
+          </div>
+        </header>
+
+        <!-- Centered Interactive Physical Envelope -->
+        <div class="envelope-stage">
+          <div class="envelope-wrapper" 
+               id="envelope-wrapper"
+               role="button" 
+               tabindex="0" 
+               aria-haspopup="dialog"
+               aria-expanded="false" 
+               aria-label="Envelope sealed with a red heart wax seal. Click or tap to open my letter.">
+            
+            <div class="envelope" id="envelope">
+              <!-- Envelope Interior / Lining (Visible when flap opens) -->
+              <div class="envelope-back" aria-hidden="true">
+                <div class="envelope-lining"></div>
+              </div>
+
+              <!-- The Letter tucked inside the pocket -->
+              <article class="letter" id="letter" aria-label="Love letter content">
+                <!-- Golden edge styling & romantic paper texture -->
+                <div class="letter-inner">
+                  <header class="letter-header">
+                    <span class="letter-date">For Sandra, Always</span>
+                    <h2 class="letter-title">My Dearest Sandra,</h2>
+                  </header>
+
+                  <div class="letter-body">
+                    <p class="letter-paragraph">
+                      I made this space because some words are too tender, too sacred, and too important to be lost in the noise of everyday life.
+                    </p>
+                    <p class="letter-paragraph letter-highlight">
+                      From the bottom of my heart, I am truly sorry for hurting you. You mean more to me than words could ever convey.
+                    </p>
+                    <p class="letter-paragraph">
+                      Every melody, every smile we shared, and every promise I made still lives deeply within me. Please let me share everything that is in my heart.
+                    </p>
+                  </div>
+
+                  <!-- Decorative signature and quote -->
+                  <footer class="letter-footer">
+                    <p class="letter-signature">Forever & always yours,</p>
+                    <div class="letter-heart-seal" aria-hidden="true">❤</div>
+
+                    <!-- Scene Navigation: Proceed to Scene 2 -->
+                    <div class="letter-actions">
+                      <button type="button" 
+                              id="btn-continue-journey" 
+                              class="btn-romantic btn-romantic--primary"
+                              aria-label="Proceed to the next chapter with my photo and message">
+                        <span>Continue Reading ❦</span>
+                      </button>
+                      <button type="button" 
+                              id="btn-close-envelope" 
+                              class="btn-romantic btn-romantic--secondary"
+                              aria-label="Fold and re-seal letter">
+                        <span>Fold Back ✉</span>
+                      </button>
+                    </div>
+                  </footer>
+                </div>
+              </article>
+
+              <!-- Envelope Pocket (Left, Right, Bottom Folds) -->
+              <div class="envelope-pocket envelope-pocket--left" aria-hidden="true"></div>
+              <div class="envelope-pocket envelope-pocket--right" aria-hidden="true"></div>
+              <div class="envelope-pocket envelope-pocket--bottom" aria-hidden="true">
+                <div class="envelope-bottom-gold-trim"></div>
+              </div>
+
+              <!-- Envelope Folded Flap (Top Triangular Flap with 3D Rotate) -->
+              <div class="envelope-flap" id="envelope-flap" aria-hidden="true">
+                <div class="flap-outer">
+                  <div class="flap-gold-crease"></div>
+                </div>
+              </div>
+
+              <!-- Red Wax Seal with Embossed Heart -->
+              <div class="wax-seal" id="wax-seal" aria-hidden="true">
+                <div class="wax-seal-outer">
+                  <div class="wax-seal-rim">
+                    <div class="wax-seal-heart">
+                      <svg viewBox="0 0 24 24" class="seal-heart-svg">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="wax-seal-shimmer"></div>
+              </div>
+
+            </div> <!-- /.envelope -->
+          </div> <!-- /.envelope-wrapper -->
+        </div> <!-- /.envelope-stage -->
+
+        <!-- Prompt Below Envelope -->
+        <footer class="envelope-footer">
+          <button type="button" 
+                  class="open-letter-prompt" 
+                  id="open-prompt-btn"
+                  aria-controls="envelope-wrapper"
+                  aria-label="Open my letter">
+            <span class="prompt-text">OPEN MY LETTER ♡</span>
+            <span class="prompt-sparkle" aria-hidden="true">✨</span>
+          </button>
+          <p class="prompt-subtext">Click the envelope or the wax seal to unfold</p>
+        </footer>
+
+      </div> <!-- /.scene-inner -->
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- SCENE 2: MY PHOTO AND ARABIC MESSAGE                             -->
+    <!-- ================================================================ -->
+    <section id="scene-2" class="scene scene--story" aria-labelledby="scene-2-title" aria-hidden="true">
+      <div class="scene-inner scene-inner--story">
+        
+        <!-- Header -->
+        <header class="story-scene-header">
+          <p class="story-scene-subtitle">A Rose For You</p>
+          <h2 id="scene-2-title" class="story-scene-title">From the Bottom of My Heart</h2>
+          <div class="flourish-divider" aria-hidden="true">
+            <span class="flourish-line"></span>
+            <span class="flourish-heart">🌹</span>
+            <span class="flourish-line"></span>
+          </div>
+        </header>
+
+        <!-- Romantic Photo Card (Preserves original photo and aspect ratio) -->
+        <div class="photo-card-container">
+          <div class="photo-frame">
+            <div class="photo-frame-inner">
+              <img src="assets/images/rose-photo.png" 
+                   alt="Holding a fresh rose for you" 
+                   class="romantic-photo" 
+                   id="rose-photo-img"
+                   loading="lazy">
+              <div class="photo-frame-tag" aria-hidden="true">
+                <span>With All My Love 🌹</span>
+              </div>
+            </div>
+            <div class="photo-corner-filigree photo-corner-filigree--tl" aria-hidden="true"></div>
+            <div class="photo-corner-filigree photo-corner-filigree--br" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Egyptian Arabic Message Card (RTL Layout) -->
+        <article class="romantic-letter-card rtl-card" dir="rtl" lang="ar" aria-label="رسالة من القلب بالعامية المصرية">
+          <div class="letter-card-texture"></div>
+          
+          <div class="card-message-content arabic-text">
+            <p class="card-p greeting-highlight">صباح الفل على أحلى بنت في الدنيا كلها ❤️🌹</p>
+
+            <p class="card-p">عارفة يا ساندرا، أنا كنت سهران بالليل بفكر إزاي أصحيكي الصبح على حاجة حلوة تبسطك وتخلي يومك يبدأ بابتسامة، وفضلت أفكر لحد ما قلت أعملك حاجة صغيرة كده من قلبي، يمكن تخليكي تبتسمي وتحسي قد إيه إنتِ غالية عندي.</p>
+
+            <p class="card-p">عاوز أقولك إن أنا شايفك، شايف كل اللي إنتِ بتعمليه معايا الفترة دي، وشايف قد إيه إنتِ بتحاولي وبتستحملي، حتى وإنتِ مش قادرة، وحتى وإنتِ مضغوطة ومش طايقة نفسك، وحتى وإنتِ لسه شايلة مني بسبب حاجات قديمة وجعتك.</p>
+
+            <p class="card-p">أنا شايف إنك رغم كل ده لسه بتحاولي تعدّي، وبتحاولي تقفي جنبي، وتسنديني، وتطمنيني، وتكوني موجودة معايا. وصدقيني، أنا مش باخد أي حاجة من دي كأنها حاجة عادية، ولا فاكر إن ده واجب عليكي. أنا عارف إن كل محاولة من دول وراها مجهود ومشاعر وصبر كبير منك، وده عندي غالي أوي.</p>
+
+            <p class="card-p">وعارف كمان إنك ممكن تكوني خايفة زيي، ويمكن أكتر مني كمان، وإن عندك مخاوفك وضغطك وحاجات كتير بتفكري فيها. بس رغم كل ده، بحس إنك بتحاولي تطمنيني وتفهميني إنك جنبي، وإنك عاوزة نكمّل سوا، وإنك هتفضلي تسنديني في اللي جاي على قد ما تقدري.</p>
+
+            <p class="card-p">وعاوزك تعرفي إني شايف ده كله، وحاسس بيه، ومقدّره من قلبي. شايف مجهودك، وشايف حبك، وشايف محاولاتك، وحتى الحاجات الصغيرة اللي يمكن إنتِ متفتكريش إني واخد بالي منها، أنا واخد بالي منها ومش بنساها.</p>
+
+            <p class="card-p love-highlight">بجد يا ساندرا، أنا بحبك أوي، أكتر ما إنتِ ممكن تتخيلي، ويمكن أكتر ما بعرف أعبّرلك بالكلام. ❤️</p>
+
+            <p class="card-p">ربنا يخليكي ليا، ويديمك في حياتي حبي الوحيد واختياري اللي قلبي مطمّن له. ويديمك جنبي، ويديم بينا الحب والونس، ويقدرني إني أكون ليكي السند والأمان زي ما إنتِ بتحاولي تكوني ليا.</p>
+
+            <p class="card-p">إنتِ من أكتر الناس اللي وقفوا جنبي ودعموني في حاجات كتير أوي، وعمري ما عاوزك تحسي إن تعبك أو وقفتك معايا مش متقدّرين. أنا شايف كل ده، وممتن ليكي عليه من قلبي.</p>
+
+            <p class="card-p signature-p">بحبك يا ساندرا، وبحب وجودك في حياتي، وبحب إنك إنتِ بالذات اللي أشاركها كل اللي جاي. ربنا يديمك ليا، ويديمك اختياري وحبيبتي وسندي. ❤️🌹</p>
+          </div>
+
+          <div class="card-seal-flourish" aria-hidden="true">❦ ❦ ❦</div>
+        </article>
+
+        <!-- Scene 2 Navigation Controls -->
+        <nav class="scene-nav-controls" aria-label="Scene 2 navigation">
+          <button type="button" 
+                  id="btn-scene-2-back" 
+                  class="btn-romantic btn-romantic--secondary"
+                  aria-label="Return to envelope">
+            <span>← Return to Envelope</span>
+          </button>
+          
+          <button type="button" 
+                  id="btn-scene-2-next" 
+                  class="btn-romantic btn-romantic--primary"
+                  aria-label="Continue to our couple photo and bilingual message">
+            <span>Continue ♡</span>
+          </button>
+        </nav>
+
+      </div> <!-- /.scene-inner -->
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- SCENE 3: COUPLE PHOTO AND BILINGUAL MESSAGE                      -->
+    <!-- ================================================================ -->
+    <section id="scene-3" class="scene scene--story" aria-labelledby="scene-3-title" aria-hidden="true">
+      <div class="scene-inner scene-inner--story">
+        
+        <!-- Header -->
+        <header class="story-scene-header">
+          <p class="story-scene-subtitle">Our Treasured Moment</p>
+          <h2 id="scene-3-title" class="story-scene-title">Seeing My Reflection in Your Eyes</h2>
+          <div class="flourish-divider" aria-hidden="true">
+            <span class="flourish-line"></span>
+            <span class="flourish-heart">❤️</span>
+            <span class="flourish-line"></span>
+          </div>
+        </header>
+
+        <!-- Couple Photo Card (Preserves original photo and aspect ratio) -->
+        <div class="photo-card-container">
+          <div class="photo-frame">
+            <div class="photo-frame-inner">
+              <img src="assets/images/couple-photo.png" 
+                   alt="Our cherished moment together" 
+                   class="romantic-photo" 
+                   id="couple-photo-img"
+                   loading="lazy">
+              <div class="photo-frame-tag" aria-hidden="true">
+                <span>Us, Together Forever ❤️</span>
+              </div>
+            </div>
+            <div class="photo-corner-filigree photo-corner-filigree--tl" aria-hidden="true"></div>
+            <div class="photo-corner-filigree photo-corner-filigree--br" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Language Switcher Bar -->
+        <div class="translation-bar">
+          <button type="button" 
+                  id="btn-language-toggle" 
+                  class="btn-romantic btn-romantic--gold"
+                  aria-pressed="false"
+                  aria-label="Translate message to Egyptian Arabic">
+            <span class="btn-icon" aria-hidden="true">🌐</span>
+            <span id="btn-language-label">Translate to Egyptian Arabic ♡</span>
+          </button>
+        </div>
+
+        <!-- Bilingual Romantic Message Card (Default English, Toggleable to Egyptian Arabic) -->
+        <article class="romantic-letter-card" 
+                 id="bilingual-letter-card" 
+                 dir="ltr" 
+                 lang="en" 
+                 aria-label="Romantic message about our photo">
+          <div class="letter-card-texture"></div>
+          
+          <div class="card-message-content" id="bilingual-message-container">
+            <!-- Default English content will be populated here -->
+          </div>
+
+          <div class="card-seal-flourish" aria-hidden="true">❦ ❦ ❦</div>
+        </article>
+
+        <!-- Scene 3 Navigation Controls -->
+        <nav class="scene-nav-controls" aria-label="Scene 3 navigation">
+          <button type="button" 
+                  id="btn-scene-3-back" 
+                  class="btn-romantic btn-romantic--secondary"
+                  aria-label="Back to previous photo">
+            <span>← Previous Chapter</span>
+          </button>
+          
+          <button type="button" 
+                  id="btn-scene-3-next" 
+                  class="btn-romantic btn-romantic--primary"
+                  aria-label="Continue to the final thank-you message">
+            <span>Continue ♡</span>
+          </button>
+        </nav>
+
+      </div> <!-- /.scene-inner -->
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- SCENE 4: FINAL THANK-YOU SCENE                                   -->
+    <!-- ================================================================ -->
+    <section id="scene-4" class="scene scene--thankyou" aria-labelledby="scene-4-title" aria-hidden="true">
+      <div class="scene-inner scene-inner--thankyou">
+        
+        <div class="thankyou-card">
+          <div class="thankyou-header">
+            <div class="thankyou-decor" aria-hidden="true">
+              <span class="decor-rose">🌹</span>
+              <span class="decor-heart">❤️</span>
+            </div>
+            <h2 id="scene-4-title" class="thankyou-title">Thank You for Being You ❤️</h2>
+            <div class="flourish-divider" aria-hidden="true">
+              <span class="flourish-line"></span>
+              <span class="flourish-heart">❦</span>
+              <span class="flourish-line"></span>
+            </div>
+          </div>
+
+          <div class="thankyou-body">
+            <p class="thankyou-message">
+              Thank you for being such a beautiful part of my life. Every moment with you means more to me than words can explain. No matter what, I want you to know how much you mean to me. You will always have a special place in my heart. ♡
+            </p>
+            
+            <p class="thankyou-closing">
+              With all my love, always. 🌹
+            </p>
+          </div>
+
+          <!-- Scene 4 Navigation Controls -->
+          <nav class="scene-nav-controls scene-nav-controls--center" aria-label="Final scene actions">
+            <button type="button" 
+                    id="btn-scene-4-back" 
+                    class="btn-romantic btn-romantic--secondary"
+                    aria-label="Return to couple photo">
+              <span>← Back</span>
+            </button>
+            <button type="button" 
+                    id="btn-read-again" 
+                    class="btn-romantic btn-romantic--primary btn-romantic--replay"
+                    aria-label="Return to the opening envelope scene">
+              <span>Read Again ♡</span>
+            </button>
+          </nav>
+        </div>
+
+      </div> <!-- /.scene-inner -->
+    </section>
+
+  </main>
+
+  <!-- Main JavaScript Application -->
+  <script src="js/script.js"></script>
+</body>
+</html>
